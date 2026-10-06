@@ -1,6 +1,10 @@
 # ScreenInc hand gesture verification
 
-Version 0.4.1, 22 September 2026.
+Version 0.4.1 implementation; status updated 6 October 2026.
+
+## Current status: WIP
+
+On 6 October 2026, Elliott reported that camera gestures are not really working and requested that they be labelled work in progress. Real-world reliability remains unresolved. The automated checks below verify components and intended behaviour; they do not establish that the camera workflow is usable or ready for live sessions.
 
 ## Implemented
 

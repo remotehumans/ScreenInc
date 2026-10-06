@@ -8,10 +8,13 @@ Open ScreenInc from Applications. It appears as a slim toolbar and menu-bar app.
 
 ## First launch
 
-The signed release identifies Elliott Callender as its developer. macOS may ask
-whether you want to open an app downloaded from the internet. Confirm Open.
-Use the latest release; older 0.4.1 preview downloads were ad-hoc signed and
-may require Privacy & Security → Open Anyway on first launch.
+Check the release notes for the download you chose. The published 0.4.1 preview
+is ad-hoc signed and is not Apple-notarized. If macOS blocks it and you trust
+this release, try opening it once, then use System Settings → Privacy & Security
+→ Open Anyway. Managed Macs may prohibit this.
+
+A Developer ID-signed release identifies Elliott Callender as its developer.
+Notarization status is stated in that release’s notes. Do not disable Gatekeeper.
 
 ## Start drawing
 
@@ -19,7 +22,13 @@ Click the pencil, then drag on the screen. Escape returns control to other apps.
 F switches new ink between fading and staying on screen. Tab toggles the toolbar.
 The colour circle opens quick settings; the stacked squares open Studio.
 
-For camera controls, click the hand, choose Start camera, allow Camera access,
+## Camera gestures — WIP
+
+Camera gestures are experimental and are not working reliably in real-world use.
+Use a mouse or trackpad for presentations and training. The following steps are
+for testing the intended interaction only.
+
+For experimental camera controls, click the hand, choose Start camera, allow Camera access,
 and wait for “Ready · pinch to draw”. Choose “2. Start drawing”. Point to aim;
 pinch and hold to draw; release to stop. Hold an open palm to show tools, then
 point at a tool and pinch once. Release before starting a drawing pinch.

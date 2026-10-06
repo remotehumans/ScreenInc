@@ -2,30 +2,72 @@
 
 # ScreenInc
 
-Draw, highlight, and present over any Mac app. Use a mouse, tablet, or camera hand gestures.
+Make your screen easier to follow.
+
+You’re sharing a screen and explaining something. A number in a spreadsheet. A button someone needs to find. The connection between two steps in a workflow. Your pointer is moving, but the people watching still have to work out what you mean.
+
+ScreenInc lets you draw directly over the app you’re using. Circle the detail, draw an arrow, or spotlight the area as you explain it. Let the ink fade when the moment has passed, or keep it visible while you build the explanation.
 
 **[Download the latest preview](https://github.com/remotehumans/ScreenInc/releases/latest)** · **[Watch the 75-second demo](https://github.com/remotehumans/ScreenInc/releases/download/v0.4.1/ScreenInc-Demo.mp4)** · **[Installation help](docs/INSTALL.md)**
 
-![Gradient annotations and the compact ScreenInc toolbar](docs/media/screeninc-example.png)
+[![Gradient annotations and the compact ScreenInc toolbar](docs/media/screeninc-example.png)](https://github.com/remotehumans/ScreenInc/releases/download/v0.4.1/ScreenInc-Demo.mp4)
 
-Free and open source under the MIT licence. This is an early preview. The current download is ad-hoc signed and is not Apple-notarized; see the installation guide before downloading.
+*Circle a navigation item, frame the section you’re discussing, and connect ideas with arrows, directly on the page.*
 
-- A compact edge toolbar, fading ink, persistent drawings, and gradients.
-- Shapes, text, selection, partial erasing, snapshots, and PNG/PDF/PSD export.
-- Spotlight, magnification, timers, cursor highlights, and a local phone remote.
-- Local camera tracking: point to aim, pinch to draw, release to stop.
+## Where it helps
+
+### Walk someone through a process
+
+You’re teaching a colleague how to use a piece of software. Circle the next button, add a numbered marker, then return control to the app and carry out the step. Let each annotation fade so the next step starts with a clear screen.
+
+### Explain a live demo
+
+You’re showing a website, product, or workflow. Frame the result you want people to notice, draw an arrow between related parts, and use the spotlight to focus attention on a small detail. Keep the actual product on screen as you explain it.
+
+### Record a tutorial
+
+You’re recording a walkthrough and want viewers to know where to look. Add emphasis as you speak: a quick underline, a circle, a label. Capture the whole display with your recording app so the annotations appear in the video. ScreenInc provides the annotations; your recording app captures them.
+
+### Give feedback in a call
+
+You’re reviewing a page, slide, or design together. Mark the area you mean and add a short note while the conversation continues. Share your entire display to include the overlay; sharing only one app window can leave the annotations out.
+
+### Build an explanation in a training session
+
+Switch ink to **Keep** and sketch a connection or sequence over your material. Use the whiteboard when you need a clear space to draw. Save the drawing as a snapshot so you can bring it back later in the session.
+
+These are suggested workflows for the current tools, not claims of testing with every meeting or recording app. Check your shared or recorded view before a session.
+
+## Why ScreenInc exists
+
+ScreenInc began with a practical question: could we build our own Mac tool for drawing over the screen during demos and training? Research into ScreenBrush helped shape the starting point: ink that fades after you use it, and controls that leave room for the content.
+
+The result is a native Mac app with a narrow edge toolbar. Keep the pencil and shapes close by, hide the toolbar when you need the space, and open the larger controls only when you need them. It’s free and open source so others can use it, inspect it, and help improve it.
+
+## What’s in the preview
+
+- **Draw and emphasise:** pen, highlighter, shapes, arrows, text, gradients, fading or persistent ink.
+- **Edit your explanation:** select, move, duplicate, recolour, resize, erase, and undo.
+- **Guide attention:** spotlight, magnification, cursor highlights, numbered markers, and a countdown.
+- **Return to an idea:** save and restore drawing snapshots; export annotations as PNG, PDF, or flattened PSD.
+
+Exports contain the drawings, not the apps underneath. See the [feature verification matrix](docs/feature-verification.md) for device and permission checks that remain outstanding.
+
+**Camera gestures are WIP.** They are included as an experiment, but real-world tracking, tool selection, and drawing are not reliable enough to recommend for presentations or training. Use the mouse or trackpad for the workflows above. Passing automated tests does not establish usable hand control.
+
+Voice-driven, screen-aware highlighting is an idea for later. It is not available in this release; you control annotations and spotlighting yourself.
 
 ## Install
 
+Requires macOS 14 or newer. The universal download includes Apple Silicon and Intel builds; Intel has not yet been tested on hardware.
+
 1. Download the `.dmg` from Releases.
 2. Open it and drag **ScreenInc** to **Applications**.
-3. Open ScreenInc. For the preview's macOS security prompt, follow [Installation](docs/INSTALL.md).
+3. Open ScreenInc and follow the [first-launch instructions](docs/INSTALL.md).
 
-No account or API key is needed. Camera processing stays on your Mac. The optional phone remote uses your local network.
+Free under the MIT licence. This is an early preview. The published 0.4.1 download is ad-hoc signed and is not Apple-notarized. See the release notes for the signing status of the file you download.
 
-A native macOS screen-annotation app. Draw over other apps, let each stroke fade independently, or keep ink on screen. Built independently after researching ScreenBrush; no ScreenBrush code or assets are included.
-
-Requires macOS 14 or newer. The universal download includes Apple Silicon and Intel builds. Intel is cross-compiled and has not yet been tested on Intel hardware.
+No account or API key is needed. Experimental camera processing stays on your Mac. The optional phone remote uses your local network.
 
 ## Start
 
@@ -35,7 +77,12 @@ Click the colour circle for quick settings. Click the stacked-squares button, or
 
 Each new stroke holds for the selected delay, then fades over one second. **F** switches new ink between fade and keep; existing strokes retain their original timing. Studio supports delays up to 120 seconds. Whiteboard hides during click-through and returns when drawing resumes.
 
-## Hand gestures (0.4.1)
+## Camera gestures — WIP
+
+**Experimental and currently unreliable.** User testing has found that camera gestures do not work reliably enough for normal use. Tracking, pinch detection, and tool selection need further work. The instructions below describe the intended interaction for contributors and testers, not a dependable hands-free workflow.
+
+<details>
+<summary>Try the experimental controls</summary>
 
 Click the **hand button** on the palette, or open **Studio → Present → Camera controls**. Choose **Start camera**, allow macOS Camera access, and check that the preview shows your whole hand and the status reads **Ready · pinch to draw**. Choose **2. Start drawing** to close setup and draw on your screen. Camera control stays off after relaunch.
 
@@ -48,7 +95,9 @@ Click the **hand button** on the palette, or open **Studio → Present → Camer
 
 Keep one hand visible and face the palm towards the camera. Use **Mirror hand movement**, **Smaller hand travel**, and **Smoothing** to adjust control. Increase **Pinch sensitivity** if your hand is tracked but touching thumb and index finger does not show **Pinch detected**. The settings window suppresses drawing while you calibrate. The larger menu is temporary; the ordinary palette remains 44 points wide.
 
-Frames are processed locally with Apple Vision, never recorded or uploaded. Gesture control drives the canvas directly and requires no Accessibility or Screen Recording permission. Mouse clicks continue to reach the underlying app during gesture mode. Text entry and image import still use ordinary controls. Live hand detection was observed; pinch accuracy and drawing comfort still need hands-on validation; see [gesture verification](docs/hand-gesture-verification.md).
+Frames are processed locally with Apple Vision, never recorded or uploaded. Gesture control drives the canvas directly and requires no Accessibility or Screen Recording permission. Mouse clicks continue to reach the underlying app during gesture mode. Text entry and image import still use ordinary controls. Earlier live hand detection was observed, but subsequent user feedback reports that gestures are not working reliably; see [gesture verification](docs/hand-gesture-verification.md).
+
+</details>
 
 ## Drawing and editing
 
