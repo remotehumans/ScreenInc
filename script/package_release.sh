@@ -23,7 +23,8 @@ else
 fi
 codesign --verify --deep --strict "$APP"
 plutil -lint "$APP/Contents/Info.plist"
-lipo "$APP/Contents/MacOS/ScreenInk" -verify_arch arm64 x86_64
+ARCHS=$(lipo -archs "$APP/Contents/MacOS/ScreenInk")
+[[ " $ARCHS " == *" arm64 "* && " $ARCHS " == *" x86_64 "* ]] || { echo "Missing release architecture: $ARCHS"; exit 1; }
 STAGE=$(mktemp -d)
 trap 'rm -rf "$STAGE"' EXIT
 ditto "$APP" "$STAGE/ScreenInc.app"
