@@ -6,13 +6,12 @@ https://github.com/remotehumans/ScreenInc/releases/latest
 Open the DMG, drag ScreenInc to Applications, and eject the disk image.
 Open ScreenInc from Applications. It appears as a slim toolbar and menu-bar app.
 
-## Preview security prompt
+## First launch
 
-Version 0.4.1 is ad-hoc signed, without Developer ID signing or Apple notarization.
-macOS may block its first launch. If you trust this release, try opening it once,
-then use System Settings → Privacy & Security → Open Anyway and confirm.
-Managed Macs may prohibit this. Building from source is another option.
-Do not disable Gatekeeper or remove quarantine globally.
+The signed release identifies Elliott Callender as its developer. macOS may ask
+whether you want to open an app downloaded from the internet. Confirm Open.
+Use the latest release; older 0.4.1 preview downloads were ad-hoc signed and
+may require Privacy & Security → Open Anyway on first launch.
 
 ## Start drawing
 

@@ -31,3 +31,18 @@ The CI template in `docs/ci/macos-checks.yml` tests and builds preview artifacts
 Publish the DMG, its checksum and optional demo using GitHub Releases. Keep large
 videos as release assets rather than Git objects. The v0.4.1 demonstration was
 provided by Elliott on 6 October 2026; it includes context from ScreenBrush.
+
+## Existing asc authentication
+
+If `asc` already has an authorised Apple API profile, the signed DMG can be
+submitted without copying its credentials into another keychain profile:
+
+```sh
+asc notarization submit --file dist/ScreenInc-VERSION-universal-signed.dmg --wait
+xcrun stapler staple dist/ScreenInc-VERSION-universal-signed.dmg
+xcrun stapler validate dist/ScreenInc-VERSION-universal-signed.dmg
+```
+
+Check that Apple reports Accepted. Regenerate the SHA-256 checksum after stapling,
+then mount the DMG and check the contained app with Gatekeeper before publishing.
+Never publish the pre-stapling checksum alongside the modified disk image.
