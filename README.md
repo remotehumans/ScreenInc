@@ -65,7 +65,7 @@ Requires macOS 14 or newer. The universal download includes Apple Silicon and In
 2. Open it and drag **ScreenInc** to **Applications**.
 3. Open ScreenInc and follow the [first-launch instructions](docs/INSTALL.md).
 
-Free under the MIT licence. This is an early preview. The published 0.4.1 download is ad-hoc signed and is not Apple-notarized. See the release notes for the signing status of the file you download.
+Free under the MIT licence. This is an early preview. From 0.4.2 the download is signed with a Developer ID and notarized by Apple, so it opens like any other Mac app.
 
 No account or API key is needed. Experimental camera processing stays on your Mac. The optional phone remote uses your local network.
 
